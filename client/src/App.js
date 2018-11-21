@@ -81,9 +81,9 @@ class App extends Component {
             bookId: book.id,
             title: book.volumeInfo.title,
             authors: book.volumeInfo.authors || "Alex Rosenkranz",
-            description: book.searchInfo.textSnippet,
+            description: (book.searchInfo) ? book.searchInfo.textSnippet : "No Description",
             link: book.volumeInfo.infoLink,
-            image: book.volumeInfo.imageLinks.thumbnail
+            image: (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/100x250"
           }
         })
         this.setState({ bookList }, () => this.handlePageChange("Search"))
